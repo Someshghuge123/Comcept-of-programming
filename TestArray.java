@@ -1,75 +1,51 @@
-import java.util.Scanner;
+package com.tester;
+
+import com.payroll.Employee;
+import com.payroll.Manager;
+import com.payroll.Worker;
 
 public class TestArray {
 
 	public static void main(String[] args) {
-
-		// declaration 
-		int[] arr;
-		//  instantiation  
-		arr = new int[5];
-		// initialization  
-		arr[0] = 34;
-		arr[1] = 44;
-		arr[2] = 77;
-		arr[3] = 88;
-		arr[4] = 99;
-
-		// display array elemnt
-		for (int i = 0; i < arr.length; i++) {
-			System.out.print(arr[i] + "  ");
-		}
-
-		//
-		// for each loop
-		System.out.println();
-		// for each number in array ;:start with first number till last number
-		// by default fwd only read only
-		for (int no : arr) {
-			System.out.print(no + "  ");
-		}
-
-		// operation
-		// search element from array
-		// sort array
-		// even numbers from array
-		// odd,prime numbers
-		// number>40
-		// sum of array elemnts
-
-		Scanner sc = new Scanner(System.in);
-		System.out.println();
-		System.out.println("Capacity=");
-		int size = sc.nextInt();
-		int[] arr1 = new int[size];
-		System.out.println("Size Of Arr1:" + arr1.length);
-
-		for (int i = 0; i < arr1.length; i++) {
-			System.out.println("Enter Array element");
-			arr1[i] = sc.nextInt();//
-		}
+		// TODO Auto-generated method stub
 		
-		System.out.println("----Array Elements----------");
+		Employee e1=null;
+		System.out.println(e1);
+		System.out.println(e1.computeNetSalary());
 		
-		for(int i=0;i<arr1.length;i++)
+		int[] arr=new int[5];//0 0 0 0 0 
+		
+		Employee[] iacsd = new Employee[5];//null null null
+		
+		//base class can hold ref of derived class
+		//UpCasting
+		
+		iacsd[0]=new Employee(205,34,"Minal",66000);
+		Manager mgr=new Manager(203,34,"Mukesh",60000,4500);;
+		
+		iacsd[1]=mgr;
+		iacsd[2]=new Worker(303, 90, "Sunil", 34444, 56, 100);
+
+		for(Employee e:iacsd)
 		{
-			System.out.print(arr1[i]+" ");
+			if(e!=null)
+			{System.out.println(e.getClass());
+			System.out.println(e);//
+			System.out.println(e.computeNetSalary());
+			//RTTI:RunTime Type Identification
+			if(e instanceof Manager) {
+			((Manager) e).showPerBonus();//DownCast Employee To Manager
+			}
+			
+			}
 		}
 		
 		
-		System.out.println("----Array Elements----------");
-		
-		for(int n:arr1)
-		{
-			System.out.print(n+"  ");
-		}
 		
 		
 		
 		
 		
-		
-
 	}
 
 }
